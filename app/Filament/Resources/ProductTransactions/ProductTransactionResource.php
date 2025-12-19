@@ -20,7 +20,7 @@ class ProductTransactionResource extends Resource
 {
     protected static ?string $model = ProductTransaction::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::CreditCard;
 
     public static function form(Schema $schema): Schema
     {

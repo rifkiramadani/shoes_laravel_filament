@@ -20,7 +20,7 @@ class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Squares2x2;
 
     public static function form(Schema $schema): Schema
     {

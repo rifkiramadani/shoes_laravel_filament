@@ -9,6 +9,10 @@ use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Actions\ViewAction;
+use Filament\Actions\DeleteAction;
 
 class BrandsTable
 {
@@ -16,13 +20,18 @@ class BrandsTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->searchable(),
+                ImageColumn::make('logo')
+                    ->disk('public'),
             ])
             ->filters([
                 TrashedFilter::make(),
             ])
             ->recordActions([
+                ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make()
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
