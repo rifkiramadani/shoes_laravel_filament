@@ -1,6 +1,9 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\ProductTransaction;
+use App\Repositories\Contracts\ShoeRepositoryInterface;
+
 class OrderRepository implements OrderRepositoryInterface {
     public function createTransaction($data) {
         return ProductTransaction::create($data);
