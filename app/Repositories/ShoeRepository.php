@@ -1,6 +1,7 @@
 <?php
 namespace App\Repository;
 
+use App\Models\Shoe;
 use App\Repositories\Contracts\ShoeRepositoryInterface;
 
 class ShoeRepository implements ShoeRepositoryInterface {
@@ -11,6 +12,10 @@ class ShoeRepository implements ShoeRepositoryInterface {
 
     public function getAllNewShoes() {
         return Shoe::latest()->get();
+    }
+
+    public function searchByName(string $keyword) {
+        return Shoe::where('name', 'LIKE', '%' . $keyword . '%');
     }
 
     public function find($id) {

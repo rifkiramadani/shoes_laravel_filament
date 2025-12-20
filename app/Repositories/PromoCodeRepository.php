@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\PromoCode;
 use App\Repository\Contracts\PromoCodeRepositoryInterface;
 
 class PromoCodeRepository implements PromoCodeRepositoryInterface {
