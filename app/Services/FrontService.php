@@ -1,4 +1,6 @@
 <?php
+namespace App\Services;
+
 use App\Repositories\Contracts\CategoryRepositoryInterfaces;
 use App\Repositories\Contracts\ShoeRepositoryInterfaces;
 

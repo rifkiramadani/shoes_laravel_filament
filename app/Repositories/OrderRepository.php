@@ -9,20 +9,24 @@ class OrderRepository implements OrderRepositoryInterface {
         return ProductTransaction::create($data);
     }
 
+    //untuk check transaction nanti
     public function findByIdAndPhoneNumber($bookingTrxId, $phoneNumber) {
         return ProducTransaction::where('booking_trx_id', $bookingTrxId)
                                 ->where('phone', $phoneNumber)
                                 ->first();
     }
 
+    //simpan ke session
     public function saveToSession($data) {
         Session::put('orderData', $data);
     }
 
+    //ambil data sesson yang telah disimpan
     public function getOrderDataFromSession() {
         return session('orderData', []);
     }
 
+    //update session atau perbarui data session
     public function updateSessionData($data) {
         //ambil data session
         $orderData = session('orderData',[]);
@@ -31,6 +35,8 @@ class OrderRepository implements OrderRepositoryInterface {
         //simpan ke data tersebut ke session
         session(['orderData' => $orderData]);
     }
+
+
 }
 
 ?>
