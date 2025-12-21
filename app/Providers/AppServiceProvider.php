@@ -20,13 +20,13 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //daftar kan semua repository ke sini
-        $this->singleton(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
 
-        $this->singleton(OrderRepositoryInterface::class, OrderRepository::class);
+        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
 
-        $this->singleton(PromoCodeRepositoryInterface::class, PromoCodeRepository::class);
+        $this->app->bind(PromoCodeRepositoryInterface::class, PromoCodeRepository::class);
 
-        $this->singleton(ShoeRepositoryInterface::class, ShoeRepository::class);
+        $this->app->bind(ShoeRepositoryInterface::class, ShoeRepository::class);
     }
 
     /**

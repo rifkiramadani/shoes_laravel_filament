@@ -1,6 +1,14 @@
 <?php
 namespace App\Services;
 
+use App\Models\ProductTransaction;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
+use App\Repositories\Contracts\OrderRepositoryInterface;
+use App\Repositories\Contracts\PromoCodeRepositoryInterface;
+use App\Repositories\Contracts\ShoeRepositoryInterface;
+
 class OrderService {
     protected $categoryRepository;
     protected $orderRepository;
@@ -34,7 +42,9 @@ class OrderService {
     }
 
     public function getOrderDetails() {
+        //ambil kembali session yang telah dibuat sebelum nya yaitu di method begin order
         $orderData = $this->orderRepository->getOrderDataFromSession();
+        //ambil juga sepatu berdasarkan id yang sudah dipilih dari session yang disimpan
         $shoe = $this->shoeRepository->find($orderData['shoe_id']);
 
         $quantity = isset($orderData['quantity']) ? $orderData['quantity'] : 1;
