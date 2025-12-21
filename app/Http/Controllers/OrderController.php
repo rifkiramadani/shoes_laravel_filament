@@ -21,7 +21,7 @@ class OrderController extends Controller
 
     //ketika pengguna menekan tombol 'continue' di halaman details sepatu
     public function saveOrder(StoreOrderRequest $request, Shoe $shoe) {
-        //validasi request daro user
+        //validasi request dari user
         $validated = $request->validated();
 
         //ambil id sepatu sebagai patokan
@@ -37,6 +37,7 @@ class OrderController extends Controller
     //untuk halaman booking
     public function booking() {
         $data = $this->orderService->getOrderDetails();
+        dd($data);
         return view('order.order', $data);
     }
 

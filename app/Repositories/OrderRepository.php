@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\ProductTransaction;
+use Illuminate\Support\Facades\Session;
 use App\Repositories\Contracts\OrderRepositoryInterface;
 // use App\Repositories\Contracts\ShoeRepositoryInterface;
 
@@ -11,7 +12,7 @@ class OrderRepository implements OrderRepositoryInterface {
     }
 
     //untuk check transaction nanti
-    public function findByIdAndPhoneNumber($bookingTrxId, $phoneNumber) {
+    public function findByTrxIdAndPhoneNumber($bookingTrxId, $phoneNumber) {
         return ProducTransaction::where('booking_trx_id', $bookingTrxId)
                                 ->where('phone', $phoneNumber)
                                 ->first();

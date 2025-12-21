@@ -10,14 +10,14 @@
     <body>
         <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
-                <img src="assets/images/logos/logo.svg" class="flex shrink-0" alt="logo">
+                <img src="{{asset('assets/images/logos/logo.svg')}}" class="flex shrink-0" alt="logo">
                 <a href="#">
-                    <img src="assets/images/icons/notification.svg" class="w-10 h-10" alt="icon">
+                    <img src="{{asset('assets/images/icons/notification.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
             </div>
             <form class="flex justify-between items-center mx-4">
                 <div class="relative flex items-center w-full rounded-l-full px-[14px] gap-[10px] bg-white transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FFC700]">
-                    <img src="assets/images/icons/search-normal.svg" class="w-6 h-6" alt="icon">
+                    <img src="{{asset('assets/images/icons/search-normal.svg')}}" class="w-6 h-6" alt="icon">
                     <input type="text" class="w-full py-[14px] appearance-none bg-white outline-none font-semibold placeholder:font-normal placeholder:text-[#878785]" placeholder="Search product...">
                 </div>
                 <button type="submit" class="h-full rounded-r-full py-[14px] px-5 bg-[#C5F277]">
@@ -57,8 +57,8 @@
                     </a>
                 </div>
                 <div class="swiper w-full overflow-hidden">
-                    @forelse ($popularShoes as $popularShoe)
                     <div class="swiper-wrapper">
+                        @forelse ($popularShoes as $popularShoe)
                         <div class="swiper-slide !w-fit py-[2px]">
                             <a href="{{route('front.details', $popularShoe->slug)}}">
                                 <div class="flex flex-col shrink-0 w-[230px] h-full rounded-3xl gap-[14px] p-[10px] pb-4 bg-white transition-all duration-300 hover:ring-2 hover:ring-[#FFC700]">
@@ -81,10 +81,10 @@
                                 </div>
                             </a>
                         </div>
+                        @empty
+                            <p class="text-center">Belum Ada Data Terbaru</p>
+                        @endforelse
                     </div>
-                    @empty
-                        <p class="text-center">Belum Ada Data Terbaru</p>
-                    @endforelse
 
                 </div>
             </section>
@@ -136,13 +136,13 @@
                             </div>
                         </a>
                         <a href="check-booking.html" class="mx-auto w-full">
-                            <img src="assets/images/icons/bag-2-white.svg" class="w-6 h-6" alt="icon">
+                            <img src="{{asset('assets/images/icons/bag-2-white.svg')}}" class="w-6 h-6" alt="icon">
                         </a>
                         <a href="#" class="mx-auto w-full">
-                            <img src="assets/images/icons/star-white.svg" class="w-6 h-6" alt="icon">
+                            <img src="{{asset('assets/images/icons/star-white.svg')}}" class="w-6 h-6" alt="icon">
                         </a>
                         <a href="#" class="mx-auto w-full">
-                            <img src="assets/images/icons/24-support-white.svg" class="w-6 h-6" alt="icon">
+                            <img src="{{asset('assets/images/icons/24-support-white.svg')}}" class="w-6 h-6" alt="icon">
                         </a>
                     </div>
                 </nav>
@@ -150,6 +150,6 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="js/index.js"></script>
+        <script src="{{asset('js/index.js')}}"></script>
     </body>
 </html>
