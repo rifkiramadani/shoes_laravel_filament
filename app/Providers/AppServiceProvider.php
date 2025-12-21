@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Repository\ShoeRepository;
+use App\Repositories\ShoeRepository;
 use App\Repositories\OrderRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\CategoryRepository;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shoe;
 use Illuminate\Http\Request;
+use App\Services\OrderService;
 use App\Models\ProductTransaction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
@@ -14,7 +15,7 @@ class OrderController extends Controller
 {
     protected $orderService;
 
-    public function __construct(OrderSevice $orderService) {
+    public function __construct(OrderService $orderService) {
         $this->orderService = $orderService;
     }
 

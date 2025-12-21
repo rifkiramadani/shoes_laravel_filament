@@ -2,7 +2,8 @@
 namespace App\Repositories;
 
 use App\Models\ProductTransaction;
-use App\Repositories\Contracts\ShoeRepositoryInterface;
+use App\Repositories\Contracts\OrderRepositoryInterface;
+// use App\Repositories\Contracts\ShoeRepositoryInterface;
 
 class OrderRepository implements OrderRepositoryInterface {
     public function createTransaction($data) {

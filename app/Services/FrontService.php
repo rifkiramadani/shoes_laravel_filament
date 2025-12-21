@@ -1,8 +1,9 @@
 <?php
 namespace App\Services;
 
-use App\Repositories\Contracts\CategoryRepositoryInterfaces;
-use App\Repositories\Contracts\ShoeRepositoryInterfaces;
+
+use App\Repositories\Contracts\ShoeRepositoryInterface;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
 
 class FrontService {
     protected $categoryRepository;
@@ -21,7 +22,7 @@ class FrontService {
     }
 
     public function getFrontPageData() {
-        $categories = $this->categoryRepository->getAllCategory();
+        $categories = $this->categoryRepository->getAllCategories();
         $popularShoes = $this->shoeRepository->getPopularShoes(4);
         $newShoes = $this->shoeRepository->getAllNewShoes();
 

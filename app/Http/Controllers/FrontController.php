@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\FrontService;
 
 class FrontController extends Controller
 {
     protected $frontService;
 
     public function __construct(FrontService $frontService) {
-        $this->$frontService = $frontService;
+        $this->frontService = $frontService;
     }
 
     public function index() {
-        $data = $frontService->getFrontPageData();
-        return view('front.index', compact('data'));
+        $data = $this->frontService->getFrontPageData();
+        return view('front.index', [
+            'categories' => $data['categories'],
+            'popularShoes' => $data['popularShoes'],
+            'newShoes' => $data['newShoes'],
+        ]);
     }
 
     public function details(Shoe $shoe) {
