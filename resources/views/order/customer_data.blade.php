@@ -7,12 +7,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
                 <a href="{{route('front.booking')}}">
                     <img src="{{asset('assets/images/icons/back.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
-                <p class="font-bold text-lg leading-[27px]">Delivery</p>
+                <p class="font-bold text-lg leading-[27px] text-white">Delivery</p>
                 <div class="dummy-btn w-10"></div>
             </div>
             <div class="flex items-center rounded-3xl gap-[14px] p-[10px_16px_16px_10px] bg-white mx-4">
@@ -43,6 +43,9 @@
                             <img src="{{asset('assets/images/icons/house-2.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
                             <textarea name="address" id="address" rows="6" class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785]" placeholder="Type your full address"></textarea>
                         </div>
+                        @error('address')
+                            <span style="color: red">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="phone" class="font-semibold">Phone Number</label>
@@ -50,6 +53,9 @@
                             <img src="{{asset('assets/images/icons/call.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
                             <input type="tel" name="phone" id="phone" class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785] py-[14px]" placeholder="What’s your phone number">
                         </div>
+                        @error('phone')
+                            <span style="color: red">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="city" class="font-semibold">City</label>
@@ -57,6 +63,9 @@
                             <img src="{{asset('assets/images/icons/global.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
                             <input type="text" name="city" id="city" class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785] py-[14px]" placeholder="Type your city">
                         </div>
+                        @error('city')
+                            <span style="color: red">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="post" class="font-semibold">Post Code</label>
@@ -64,6 +73,9 @@
                             <img src="{{asset('assets/images/icons/location.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
                             <input type="text" name="post_code" id="post" class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785] py-[14px]" placeholder="Type your post code">
                         </div>
+                        @error('city')
+                            <span style="color: red">{{$message}}</span>
+                        @enderror
                     </div>
                     <hr class="border-[#EAEAED]">
                     <div class="flex items-center gap-[10px]">
@@ -80,7 +92,7 @@
                                 </p>
                                 <p class="text-sm leading-[21px] text-[#878785]">Grand total</p>
                             </div>
-                            <button type="submit" class="rounded-full p-[12px_20px] bg-[#C5F277] font-bold">
+                            <button type="submit" class="rounded-full p-[12px_20px] bg-dark-blue text-white font-bold">
                                 Continue
                             </button>
                         </div>

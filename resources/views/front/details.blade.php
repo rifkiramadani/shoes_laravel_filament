@@ -8,12 +8,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
                 <a href="{{route('front.index')}}">
                     <img src="{{asset('assets/images/icons/back.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
-                <p class="font-bold text-lg leading-[27px]">Look Details</p>
+                <p class="font-bold text-lg leading-[27px] text-white">Look Details</p>
                 <div class="dummy-btn w-10"></div>
             </div>
             <section id="gallery" class="flex flex-col gap-[10px]">
@@ -35,25 +35,25 @@
             </section>
             <section id="info" class="flex flex-col gap-[14px] px-4">
                 <div class="flex items-center justify-between">
-                    <h1 id="title" class="font-bold text-2xl leading-9">{{$shoe->name}}</h1>
+                    <h1 id="title" class="font-bold text-2xl leading-9 text-white">{{$shoe->name}}</h1>
                     <div class="flex flex-col items-end shrink-0">
                         <div class="flex items-center gap-1">
                             <img src="{{asset('assets/images/icons/Star 1.svg')}}" class="w-[26px] h-[26px]" alt="star">
-                            <span class="font-semibold text-xl leading-[30px]">4.5</span>
+                            <span class="font-semibold text-xl leading-[30px] text-white">4.5</span>
                         </div>
-                        <p class="text-sm leading-[21px] text-[#878785]">(18,485 reviews)</p>
+                        <p class="text-sm leading-[21px] text-white">(18,485 reviews)</p>
                     </div>
                 </div>
-                <p id="desc" class="leading-[30px]">{{$shoe->about}}</p>
+                <p id="desc" class="leading-[30px] text-white">{{$shoe->about}}</p>
             </section>
             <div id="brand" class="flex items-center gap-4 px-4">
                 <div class="w-[70px] h-[70px] rounded-[20px] bg-white overflow-hidden">
                     <img src="{{asset('storage/' . $shoe->brand->logo)}}" class="w-full h-full object-contain" alt="brand logo">
                 </div>
                 <div class="flex flex-col">
-                    <h2 class="text-sm leading-[21px]">Brand</h2>
+                    <h2 class="text-sm leading-[21px] text-white">Brand</h2>
                     <div class="flex items-center gap-1">
-                        <h3 class="font-bold text-lg leading-[27px]">{{$shoe->brand->name}}</h3>
+                        <h3 class="font-bold text-lg leading-[27px] text-white">{{$shoe->brand->name}}</h3>
                         <img src="{{asset('assets/images/icons/arrow-left.svg')}}" class="w-5 h-5" alt="icon">
                     </div>
                 </div>
@@ -61,12 +61,12 @@
             <form action="{{route('front.saveOrder', $shoe->slug)}}" method="POST" class="flex flex-col gap-3">
                 @csrf
                 <div class="flex flex-col gap-3 px-4">
-                    <h2 class="font-bold">Choose Size</h2>
+                    <h2 class="font-bold text-white">Choose Size</h2>
                     <div class="flex items-center flex-wrap gap-[10px]">
                        @foreach ($shoe->shoeSizes as $shoeSize)
-                            <label class="relative flex justify-center min-w-[83px] w-fit rounded-2xl ring-1 ring-[#2A2A2A] p-[14px] transition-all duration-300 has-[:checked]:bg-white has-[:checked]:ring-2 has-[:checked]:ring-[#FFC700] hover:ring-2 hover:ring-[#FFC700]">
+                            <label class="relative flex justify-center min-w-[83px] w-fit rounded-2xl ring-1 ring-[#FFFFFF] p-[14px] transition-all duration-300 has-[:checked]:bg-dark has-[:checked]:ring-2 has-[:checked]:ring-[#FFC700] hover:ring-2 hover:ring-[#FFC700]">
                             <input type="radio" name="shoe_size" data-size-id="{{$shoeSize->id}}" value="{{$shoeSize->size}}" class="absolute top-1/2 left-1/2 opacity-0" required>
-                            <span class="font-semibold">{{$shoeSize->size}}</span>
+                            <span class="font-semibold text-white">{{$shoeSize->size}}</span>
                         </label>
                        @endforeach
                        {{-- menyimpan id yang dari inputan user menggunakan javascript di bawah sehingga dapat disimpan ke session --}}
@@ -80,7 +80,7 @@
                                 <p class="font-bold text-[20px] leading-[30px] text-white">Rp {{number_format($shoe->price, 0, ',', '.')}}</p>
                                 <p class="text-sm leading-[21px] text-[#878785]">One pair shoes</p>
                             </div>
-                            <button type="submit" class="rounded-full p-[12px_20px] bg-[#C5F277] font-bold">
+                            <button type="submit" class="rounded-full p-[12px_20px] bg-dark-blue text-white font-bold">
                                 Buy Now
                             </button>
                         </div>

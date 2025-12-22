@@ -59,8 +59,8 @@
                         value="1" class="sr-only -z-10">
 
                     <button type="button" wire:click="incrementQuantity"
-                        class="flex w-full h-[54px] items-center justify-center rounded-full bg-[#C5F277] overflow-hidden">
-                        <span class="font-bold text-xl leading-[30px]">+</span>
+                        class="flex w-full h-[54px] items-center justify-center rounded-full bg-dark-blue overflow-hidden">
+                        <span class="font-bold text-xl leading-[30px] text-white">+</span>
                     </button>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                             {{ number_format($grandTotalAmount, 0, ',', '.') }}</p>
                         <p class="text-sm leading-[21px] text-[#878785]">Grand total</p>
                     </div>
-                    <button class="rounded-full p-[12px_20px] bg-[#C5F277] font-bold">
+                    <button class="rounded-full p-[12px_20px] bg-dark-blue text-white font-bold">
                         Continue
                     </button>
                 </div>

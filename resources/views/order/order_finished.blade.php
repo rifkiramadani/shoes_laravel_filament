@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
             <div class="flex flex-col items-center justify-center px-4 gap-[30px] my-auto">
                 <div class="w-[330px] h-[196px] flex overflow-hidden">
                     <img src="{{asset('storage/' . $productTransaction->shoe->shoePhotos()->latest()->first()->photo)}}" class="w-full h-full object-contain" alt="thumbnail">
@@ -25,7 +25,7 @@
                         <img src="{{asset('assets/images/icons/verify.svg')}}" class="w-6 h-6" alt="icon">
                     </div>
                     <div class="flex flex-col gap-3">
-                        <a href="{{route('front.index')}}" class="rounded-full p-[12px_20px] text-center w-full bg-[#C5F277] font-bold">Order More</a>
+                        <a href="{{route('front.index')}}" class="rounded-full p-[12px_20px] text-center w-full bg-dark-blue text-white font-bold">Order More</a>
                         <a href="{{route('front.checkBooking')}}" class="rounded-full p-[12px_20px] text-center w-full bg-[#090917] font-bold text-white">Check Booking</a>
                     </div>
                 </div>

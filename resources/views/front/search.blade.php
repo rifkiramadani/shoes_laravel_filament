@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+    <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
         <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
             <a href="{{ route('front.index') }}">
                 <img src="{{ asset('assets/images/icons/back.svg') }}" class="w-10 h-10" alt="icon">
             </a>
-            <p class="font-bold text-lg leading-[27px]">Search Result</p>
+            <p class="font-bold text-lg leading-[27px] text-white">Search Result</p>
             <div class="dummy-btn w-10"></div>
         </div>
         <form action="{{ route('front.search') }}" class="flex justify-between items-center mx-4">
@@ -26,8 +26,8 @@
                     class="w-full py-[14px] appearance-none bg-white outline-none font-bold leading-5 placeholder:font-normal placeholder:text-[#878785]"
                     placeholder="Search product...">
             </div>
-            <button type="submit" class="h-full rounded-r-full py-[14px] px-5 bg-[#C5F277]">
-                <span class="font-semibold">Explore</span>
+            <button type="submit" class="h-full rounded-r-full py-[14px] px-5 bg-dark-blue">
+                <span class="font-semibold text-white">Explore</span>
             </button>
         </form>
         <section id="result" class="flex flex-col gap-4 px-4 mb-[111px] mt-[10px]">

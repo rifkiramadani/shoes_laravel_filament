@@ -8,33 +8,33 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#1F1F1A]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway bg-dark-milkyway::after">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
-                <span class="flex shrink-0 text-white font-bold">TOKO SEPATU</span>
+                <span class="flex shrink-0 text-white font-bold">SEPATU STORE</span>
                 <a href="#">
                     <img src="{{asset('assets/images/icons/notification.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
             </div>
             <form action="{{route('front.search')}}" class="flex justify-between items-center mx-4">
-                <div class="relative flex items-center w-full rounded-l-full px-[14px] gap-[10px] bg-white transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FFC700]">
+                <div class="relative flex items-center w-full rounded-l-full px-[14px] gap-[10px] bg-white transition-all duration-300 focus-within:ring-2 focus-within:ring-[#8B5CF6]">
                     <img src="{{asset('assets/images/icons/search-normal.svg')}}" class="w-6 h-6" alt="icon">
                     <input type="text" name="keyword" class="w-full py-[14px] appearance-none bg-white outline-none font-semibold placeholder:font-normal placeholder:text-[#878785]" placeholder="Search product...">
                 </div>
-                <button type="submit" class="h-full rounded-r-full py-[14px] px-5 bg-[#C5F277]">
-                    <span class="font-semibold">Explore</span>
+                <button type="submit" class="h-full rounded-r-full py-[14px] px-5 bg-dark-blue border-milkyway">
+                    <span class="font-semibold text-white">Explore</span>
                 </button>
             </form>
             <section id="category" class="flex flex-col gap-4 px-4">
                 <div class="flex items-center justify-between">
                     <h2 class="font-bold leading-[20px] text-white">Our Featured <br>Categories</h2>
-                    <a href="category.html" class=" text-white rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs leading-[18px]">
+                    <a href="category.html" class=" text-white rounded-full p-[6px_14px] border border-white text-xs leading-[18px]">
                         View All
                     </a>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                    @forelse ($categories as $category)
                            <a href="{{route('front.category', $category->slug)}}">
-                            <div class="flex items-center justify-between w-full rounded-2xl overflow-hidden bg-white transition-all duration-300 hover:ring-2 hover:ring-[#FFC700]">
+                            <div class="flex items-center justify-between w-full rounded-2xl overflow-hidden bg-white transition-all duration-300 hover:ring-2 hover:ring-[#8B5CF6]">
                                 <div class="flex flex-col gap-[2px] px-[14px]">
                                     <h3 class="font-bold text-sm leading-[21px]">{{$category->name}}</h3>
                                     <p class="text-xs leading-[18px] text-[#878785]">{{$category->shoes->count()}} shoes</p>
@@ -52,7 +52,7 @@
             <section id="featured" class="flex flex-col gap-4">
                 <div class="flex items-center justify-between px-4">
                     <h2 class="font-bold leading-[20px] text-white">Explore Our <br>Featured</h2>
-                    <a href="#" class="rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs text-white leading-[18px]">
+                    <a href="#" class="rounded-full p-[6px_14px] border border-white text-xs text-white leading-[18px]">
                         View All
                     </a>
                 </div>
@@ -61,8 +61,8 @@
                         @forelse ($popularShoes as $popularShoe)
                         <div class="swiper-slide !w-fit py-[2px]">
                             <a href="{{route('front.details', $popularShoe->slug)}}">
-                                <div class="flex flex-col shrink-0 w-[230px] h-full rounded-3xl gap-[14px] p-[10px] pb-4 bg-white transition-all duration-300 hover:ring-2 hover:ring-[#FFC700]">
-                                    <div class="w-[210px] h-[230px] rounded-3xl bg-[#D9D9D9] overflow-hidden">
+                                <div class="flex flex-col shrink-0 w-[230px] h-full rounded-3xl gap-[14px] p-[10px] pb-4 bg-white transition-all duration-300 hover:ring-2 hover:ring-[#8B5CF6]">
+                                    <div class="w-[210px] h-[230px] rounded-3xl overflow-hidden">
                                         <img src="{{asset('storage/' . $popularShoe->thumbnail)}}" class="w-full h-full object-cover" alt="thumbnail">
                                     </div>
                                     <div class="flex flex-col gap-[14px] justify-between">
@@ -91,15 +91,15 @@
             <section id="fresh" class="flex flex-col gap-4 px-4">
                 <div class="flex items-center justify-between">
                     <h2 class="font-bold leading-[20px] text-white">Fresh From <br>Great Designers</h2>
-                    <a href="#" class="rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs leading-[18px]">
+                    <a href="#" class="text-white rounded-full p-[6px_14px] border border-white text-xs leading-[18px]">
                         View All
                     </a>
                 </div>
                 <div class="flex flex-col gap-4">
                     @forelse ($newShoes as $newShoe)
                     <a href="{{route('front.details', $newShoe->slug)}}">
-                        <div class="flex items-center rounded-3xl p-[10px_16px_16px_10px] gap-[14px] bg-white transition-all duration-300 hover:ring-2 hover:ring-[#FFC700]">
-                            <div class="w-20 h-20 flex shrink-0 rounded-2xl bg-[#D9D9D9] overflow-hidden">
+                        <div class="flex items-center rounded-3xl p-[10px_16px_16px_10px] gap-[14px] bg-white transition-all duration-300 hover:ring-2 hover:ring-[#8B5CF6]">
+                            <div class="w-20 h-20 flex shrink-0 rounded-2xl overflow-hidden">
                                 <img src="{{asset('storage/' . $newShoe->thumbnail)}}" class="w-full h-full object-cover" alt="thumbnail">
                             </div>
                             <div class="flex w-full items-center justify-between gap-[14px]">
@@ -130,9 +130,9 @@
                 <nav class="fixed bottom-5 w-full max-w-[640px] px-4 z-30">
                     <div class="grid grid-flow-col auto-cols-auto items-center justify-between rounded-full bg-[#2A2A2A] p-2 px-[30px]">
                         <a href="{{route('front.index')}}" class="active flex shrink-0 -mx-[22px]">
-                            <div class="flex items-center rounded-full gap-[10px] p-[12px_16px] bg-[#C5F277]">
-                                <img src="assets/images/icons/3dcube.svg" class="w-6 h-6" alt="icon">
-                                <span class="font-bold text-sm leading-[21px]">Browse</span>
+                            <div class="flex items-center rounded-full gap-[10px] p-[12px_16px] bg-dark-blue">
+                                <img src="{{asset('assets/images/icons/3dcube-white.svg')}}" class="w-6 h-6" alt="icon">
+                                <span class="font-bold text-sm leading-[21px] text-white">Browse</span>
                             </div>
                         </a>
                         <a href="{{route('front.checkBooking')}}" class="mx-auto w-full">

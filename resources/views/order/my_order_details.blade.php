@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
                 <a href="{{route('front.checkBooking')}}">
                     <img src="{{asset('assets/images/icons/back.svg')}}" class="w-10 h-10" alt="icon">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
                 <hr class="border-[#EAEAED]">
-                <a href="#" class="rounded-full p-[12px_20px] text-center w-full bg-[#C5F277] font-bold">Call Customer Service</a>
+                <a href="#" class="rounded-full p-[12px_20px] text-center w-full bg-dark-blue text-white font-bold">Call Customer Service</a>
                 <hr class="border-[#EAEAED]">
                 <div class="flex items-center gap-[10px]">
                     <img src="{{asset('assets/images/icons/shield-tick.svg')}}" class="w-8 h-8 flex shrink-0" alt="icon">

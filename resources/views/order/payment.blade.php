@@ -7,13 +7,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <form action="{{route('front.paymentConfirm')}}" enctype="multipart/form-data" method="POST" class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <form action="{{route('front.paymentConfirm')}}" enctype="multipart/form-data" method="POST" class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
             @csrf
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
                 <a href="{{route('front.customerData')}}">
                     <img src="{{asset('assets/images/icons/back.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
-                <p class="font-bold text-lg leading-[27px]">Review & Payment</p>
+                <p class="font-bold text-lg leading-[27px] text-white">Review & Payment</p>
                 <div class="dummy-btn w-10"></div>
             </div>
             <section id="your-order" class="accordion flex flex-col rounded-[20px] p-4 pb-5 gap-5 mx-4 bg-white overflow-hidden transition-all duration-300 has-[:checked]:!h-[66px]">
@@ -161,7 +161,7 @@
                         <div class="flex flex-col gap-[2px] mr-2">
                             <p class="text-white">Apakah anda sudah benar membayar?</p>
                         </div>
-                        <button type="submit" class="rounded-full p-[12px_20px] bg-[#C5F277] font-bold text-nowrap">
+                        <button type="submit" class="rounded-full p-[12px_20px] bg-dark-blue text-white font-bold text-nowrap">
                             Confirm Now
                         </button>
                     </div>

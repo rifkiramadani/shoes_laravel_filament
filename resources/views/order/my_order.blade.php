@@ -7,11 +7,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
             <div class="flex flex-col items-center justify-center px-4 gap-[30px] my-auto">
                 <form action="{{route('front.checkBookingDetails')}}" method="POST" class="flex flex-col w-full max-w-[330px] rounded-[30px] p-5 gap-6 bg-white">
                     @csrf
-                    <img src="{{asset('assets/images/icons/3d-cube-search.svg')}}" class="w-[90px] h-[90px] mx-auto" alt="icon">
+                    <img src="{{asset('assets/images/icons/3dcube-white.svg')}}" class="w-[90px] h-[50px] mx-auto bg-dark-blue rounded-full" alt="icon">
                     <h1 class="font-bold text-2xl leading-9 text-center">Check My Order</h1>
                     <div class="flex flex-col gap-2">
                         <label for="booking_trx_id" class="font-semibold leading-[21px]">Booking ID</label>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <button type="submit" class="rounded-full p-[12px_20px] text-center w-full bg-[#C5F277] font-bold">Find Booking</button>
+                        <button type="submit" class="rounded-full p-[12px_20px] text-center w-full bg-dark-blue text-white font-bold">Find Booking</button>
                     </div>
                 </div>
                 <div id="bottom-nav" class="relative flex h-[100px] w-full shrink-0">
@@ -38,9 +38,9 @@
                                 <img src="{{asset('assets/images/icons/3dcube-white.svg')}}" class="w-6 h-6" alt="icon">
                             </a>
                             <a href="{{route('front.checkBooking')}}" class="active flex shrink-0 -mx-[22px]">
-                                <div class="flex items-center rounded-full gap-[10px] p-[12px_16px] bg-[#C5F277]">
-                                    <img src="{{asset('assets/images/icons/bag-2.svg')}}" class="w-6 h-6" alt="icon">
-                                    <span class="font-bold text-sm leading-[21px]">My Order</span>
+                                <div class="flex items-center rounded-full gap-[10px] p-[12px_16px] bg-dark-blue">
+                                    <img src="{{asset('assets/images/icons/bag-2-white.svg')}}" class="w-6 h-6" alt="icon">
+                                    <span class="font-bold text-sm leading-[21px] text-white">My Order</span>
                                 </div>
                             </a>
                             <a href="#" class="mx-auto w-full">

@@ -7,12 +7,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-dark-milkyway">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
                 <a href="{{route('front.details', $shoe->slug)}}">
                     <img src="{{asset('assets/images/icons/back.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
-                <p class="font-bold text-lg leading-[27px]">Booking</p>
+                <p class="font-bold text-lg leading-[27px] text-white">Booking</p>
                 <div class="dummy-btn w-10"></div>
             </div>
             @livewire('order-form', ['shoe' => $shoe, 'orderData' => $orderData])
