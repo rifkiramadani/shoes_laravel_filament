@@ -32,4 +32,8 @@ Route::post('/order/payment/confirm', [OrderController::class, 'paymentConfirm']
 //terakhir arahkan ke halaman finish order menggunakan id dari productTransaction
 Route::get('/order/finished/{productTransaction:id}', [OrderController::class, 'orderFinished'])->name('front.orderFinished');
 
+//route untuk mengarahkan ke form check booking
+Route::get('/check-booking', [OrderController::class, 'checkBooking'])->name('front.checkBooking');
+//route untuk mengambil detail booking
+Route::post('/check-booking/details', [OrderController::class, 'checkBookingDetails'])->name('front.checkBookingDetails');
 

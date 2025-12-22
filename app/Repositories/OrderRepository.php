@@ -13,7 +13,7 @@ class OrderRepository implements OrderRepositoryInterface {
 
     //untuk check transaction nanti
     public function findByTrxIdAndPhoneNumber($bookingTrxId, $phoneNumber) {
-        return ProducTransaction::where('booking_trx_id', $bookingTrxId)
+        return ProductTransaction::where('booking_trx_id', $bookingTrxId)
                                 ->where('phone', $phoneNumber)
                                 ->first();
     }

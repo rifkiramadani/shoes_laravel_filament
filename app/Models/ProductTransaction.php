@@ -31,7 +31,11 @@ class ProductTransaction extends Model
         'promo_code_id'
     ];
 
-    public function generateUniqueTrxId()
+    protected $casts = [
+        'created_at' => 'datetime'
+    ];
+
+    public static function generateUniqueTrxId()
     {
         $prefix = 'SS';
 
@@ -47,8 +51,13 @@ class ProductTransaction extends Model
         return $this->belongsTo(Shoe::class, 'shoe_id');
     }
 
+    public function shoeSize() {
+        return $this->belongsTo(ShoeSize::class, 'shoe_size');
+    }
+
     public function promoCode()
     {
         return $this->belongsTo(PromoCode::class, 'promo_code_id');
     }
+
 }

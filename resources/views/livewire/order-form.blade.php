@@ -26,10 +26,10 @@
                     <input wire:model="name" type="text" name="name" id="name"
                         class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785] py-[14px]"
                         placeholder="Type your complete name">
+                    </div>
                     @error('name')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
-                </div>
             </div>
             <div class="flex flex-col gap-2">
                 <label for="email" class="font-semibold">Email Address</label>
@@ -39,10 +39,10 @@
                     <input wire:model="email" type="text" name="email" id="email"
                         class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#878785] py-[14px]"
                         placeholder="Type your email address">
+                    </div>
                     @error('email')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
-                </div>
             </div>
             <hr class="border-[#EAEAED]">
             <div class="flex flex-col gap-2">

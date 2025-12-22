@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\StoreCustomerDataRequest;
+use App\Http\Requests\StoreCheckBookingDetailsRequest;
 
 class OrderController extends Controller
 {
@@ -61,22 +62,47 @@ class OrderController extends Controller
     //untuk halaman payment yaitu final review dari yang harus dibayarkan
     public function payment() {
         $data = $this->orderService->getOrderDetails();
-        dd($data);
-        return view('order.payment');
+        // dd($data);
+        return view('order.payment', [
+            'orderData' => $data['orderData'],
+            'shoe' => $data['shoe']
+        ]); //lemparkan data session
     }
 
+    //fungsi untuk post konfirmasi pembayaran dari final review halaman payment
     public function paymentConfirm(StorePaymentRequest $request) {
         $validated = $request->validated();
-        $productTransactionId = $this->orderService->paymentConfirm();
+        $productTransactionId = $this->orderService->paymentConfirm($validated);
 
         if($productTransactionId) {
-            return redirect('order.order_finished', $productTransactionId);
+            return redirect()->route('front.orderFinished', $productTransactionId);
         }
 
+        // dd(session()->all());
         return redirect('front.index')->withErrors(['error' => 'payment failed. Please try again.']);
     }
 
+    //fungsi untuk mengarahkan ke halaman order finished ketika sudah melakukan paymentConfirm()
     public function orderFinished(ProductTransaction $productTransaction) {
-        dd($productTransaction);
+        return view('order.order_finished', compact('productTransaction'));
+    }
+
+    //fungsi untuk mengarahkan ke halaman untuk mengarahkan ke halaman check booking atau my_order
+    public function checkBooking() {
+        return view('order.my_order');
+    }
+
+    //fungsi untuk mengarahkan ke halaman detail booking dengan membawa request
+    public function checkBookingDetails(StoreCheckBookingDetailsRequest $request) {
+        $validated = $request->validated();
+
+        $orderDetails = $this->orderService->getMyOrderDetails($validated);
+
+        if($orderDetails) {
+            return view('order.my_order_details', compact('orderDetails'));
+        }
+
+        return redirect()->route('front.checkBooking')->withErrors(['error' => 'Transaction not found']);
+
     }
 }
