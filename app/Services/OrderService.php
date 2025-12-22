@@ -146,6 +146,8 @@
                     //ambil id dari transaksi baru untuk di tampilkan di halaman sukses
                     $productTransactionId = $newTransaction->id;
 
+                    $this->orderRepository->clearSession();
+
                 });
             } catch (\Exception $e) {
                 Log::error("Error In Payment Confirmation: " . $e->getMessage());

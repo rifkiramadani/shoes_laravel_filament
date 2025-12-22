@@ -9,7 +9,7 @@
     <body>
         <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
-                <a href="booking.html">
+                <a href="{{route('front.booking')}}">
                     <img src="{{asset('assets/images/icons/back.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
                 <p class="font-bold text-lg leading-[27px]">Delivery</p>
@@ -68,7 +68,7 @@
                     <hr class="border-[#EAEAED]">
                     <div class="flex items-center gap-[10px]">
                         <img src="{{asset('assets/images/icons/shield-tick.svg')}}" class="w-8 h-8 flex shrink-0" alt="icon">
-                        <p class="leading-[26px]">Kami melindungi data privasi anda dengan baik bantuan Angga X.</p>
+                        <p class="leading-[26px]">Kami melindungi data privasi anda dengan baik.</p>
                     </div>
                 </div>
                 <div id="bottom-nav" class="relative flex h-[100px] w-full shrink-0 mt-5">

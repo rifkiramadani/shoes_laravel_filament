@@ -8,17 +8,17 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     </head>
     <body>
-        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#F5F5F0]">
+        <div class="relative flex flex-col w-full max-w-[640px] min-h-screen gap-5 mx-auto bg-[#1F1F1A]">
             <div id="top-bar" class="flex justify-between items-center px-4 mt-[60px]">
-                <img src="{{asset('assets/images/logos/logo.svg')}}" class="flex shrink-0" alt="logo">
+                <span class="flex shrink-0 text-white font-bold">TOKO SEPATU</span>
                 <a href="#">
                     <img src="{{asset('assets/images/icons/notification.svg')}}" class="w-10 h-10" alt="icon">
                 </a>
             </div>
-            <form class="flex justify-between items-center mx-4">
+            <form action="{{route('front.search')}}" class="flex justify-between items-center mx-4">
                 <div class="relative flex items-center w-full rounded-l-full px-[14px] gap-[10px] bg-white transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FFC700]">
                     <img src="{{asset('assets/images/icons/search-normal.svg')}}" class="w-6 h-6" alt="icon">
-                    <input type="text" class="w-full py-[14px] appearance-none bg-white outline-none font-semibold placeholder:font-normal placeholder:text-[#878785]" placeholder="Search product...">
+                    <input type="text" name="keyword" class="w-full py-[14px] appearance-none bg-white outline-none font-semibold placeholder:font-normal placeholder:text-[#878785]" placeholder="Search product...">
                 </div>
                 <button type="submit" class="h-full rounded-r-full py-[14px] px-5 bg-[#C5F277]">
                     <span class="font-semibold">Explore</span>
@@ -26,8 +26,8 @@
             </form>
             <section id="category" class="flex flex-col gap-4 px-4">
                 <div class="flex items-center justify-between">
-                    <h2 class="font-bold leading-[20px]">Our Featured <br>Categories</h2>
-                    <a href="category.html" class="rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs leading-[18px]">
+                    <h2 class="font-bold leading-[20px] text-white">Our Featured <br>Categories</h2>
+                    <a href="category.html" class=" text-white rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs leading-[18px]">
                         View All
                     </a>
                 </div>
@@ -45,14 +45,14 @@
                             </div>
                         </a>
                    @empty
-                        <p class="text-center">Belum Ada Data Terbaru</p>
+                        <p class="text-center text-white">Belum Ada Data Terbaru</p>
                    @endforelse
                 </div>
             </section>
             <section id="featured" class="flex flex-col gap-4">
                 <div class="flex items-center justify-between px-4">
-                    <h2 class="font-bold leading-[20px]">Explore Our <br>Featured</h2>
-                    <a href="#" class="rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs leading-[18px]">
+                    <h2 class="font-bold leading-[20px] text-white">Explore Our <br>Featured</h2>
+                    <a href="#" class="rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs text-white leading-[18px]">
                         View All
                     </a>
                 </div>
@@ -82,7 +82,7 @@
                             </a>
                         </div>
                         @empty
-                            <p class="text-center">Belum Ada Data Terbaru</p>
+                            <p class="text-center text-white">Belum Ada Data Terbaru</p>
                         @endforelse
                     </div>
 
@@ -90,7 +90,7 @@
             </section>
             <section id="fresh" class="flex flex-col gap-4 px-4">
                 <div class="flex items-center justify-between">
-                    <h2 class="font-bold leading-[20px]">Fresh From <br>Great Designers</h2>
+                    <h2 class="font-bold leading-[20px] text-white">Fresh From <br>Great Designers</h2>
                     <a href="#" class="rounded-full p-[6px_14px] border border-[#2A2A2A] text-xs leading-[18px]">
                         View All
                     </a>

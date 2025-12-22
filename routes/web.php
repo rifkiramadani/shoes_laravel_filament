@@ -37,3 +37,6 @@ Route::get('/check-booking', [OrderController::class, 'checkBooking'])->name('fr
 //route untuk mengambil detail booking
 Route::post('/check-booking/details', [OrderController::class, 'checkBookingDetails'])->name('front.checkBookingDetails');
 
+//route untuk fitur search by name
+Route::get('/search', [FrontController::class, 'search'])->name('front.search');
+

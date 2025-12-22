@@ -38,6 +38,9 @@ class OrderRepository implements OrderRepositoryInterface {
         session(['orderData' => $orderData]);
     }
 
+    public function clearSession() {
+        Session::forget('orderData');
+    }
 
 }
 

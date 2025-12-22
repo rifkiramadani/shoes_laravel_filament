@@ -18,6 +18,9 @@ interface OrderRepositoryInterface {
     //fungsi untuk mengambil data order dari session (untuk menampilkan data dari session)
     public function getOrderDataFromSession();
 
+    //fungsi untuk mereset session ketika seudah paymentConfirm atau proses selesai
+    public function clearSession();
+
 }
 
 
