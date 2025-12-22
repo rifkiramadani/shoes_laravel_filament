@@ -44,6 +44,7 @@ class OrderController extends Controller
     //untuk halaman detail dari booking yaitu delivery
     public function customerData() {
         $data = $this->orderService->getOrderDetails();
+        dd($data);
         return view('order.customer_data', $data);
     }
 
