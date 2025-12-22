@@ -44,8 +44,10 @@ class OrderController extends Controller
     //untuk halaman detail dari booking yaitu delivery
     public function customerData() {
         $data = $this->orderService->getOrderDetails();
-        dd($data);
-        return view('order.customer_data', $data);
+        return view('order.customer_data', [
+            'orderData' => $data['orderData'],
+            'shoe' => $data['shoe']
+        ]);
     }
 
     //ketika user menekan tombol continue, session langsung diperbarui
@@ -59,7 +61,8 @@ class OrderController extends Controller
     //untuk halaman payment yaitu final review dari yang harus dibayarkan
     public function payment() {
         $data = $this->orderService->getOrderDetails();
-        return view('front.payment');
+        dd($data);
+        return view('order.payment');
     }
 
     public function paymentConfirm(StorePaymentRequest $request) {
@@ -67,7 +70,7 @@ class OrderController extends Controller
         $productTransactionId = $this->orderService->paymentConfirm();
 
         if($productTransactionId) {
-            return redirect('front.order_finished', $productTransactionId);
+            return redirect('order.order_finished', $productTransactionId);
         }
 
         return redirect('front.index')->withErrors(['error' => 'payment failed. Please try again.']);

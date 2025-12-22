@@ -23,7 +23,7 @@ class OrderRepository implements OrderRepositoryInterface {
         Session::put('orderData', $data);
     }
 
-    //ambil data sesson yang telah disimpan
+    //ambil data session yang telah disimpan
     public function getOrderDataFromSession() {
         return session('orderData', []);
     }
