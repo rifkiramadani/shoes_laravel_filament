@@ -13,7 +13,7 @@ class PromoCodeRepository implements PromoCodeRepositoryInterface {
 
     //ambil promocode berdasarkan promocode yang di inputkan oleh user
     public function findByCode($code) {
-        return PromoCode::where('code', $code);
+        return PromoCode::where('code', $code)->first();
     }
 }
 

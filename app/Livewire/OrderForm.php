@@ -65,6 +65,48 @@ class OrderForm extends Component
         }
     }
 
+    public function updatedPromoCode() {
+        $this->applyPromoCode();
+    }
+
+    //fungsi untuk menerapkan kode promo
+    public function applyPromoCode() {
+        //jika promo code tidak ada maka reset diskonnya dengan menjalankan method resetDiscount()
+        if(!$this->promoCode) {
+            $this->resetDiscount();
+        }
+
+        //jalankan service applyPromoCode dengan meletakkan value dari promo code dan subtotalamount
+        $result = $this->orderService->applyPromoCode($this->promoCode, $this->subTotalAmount);
+
+        //jikalau error atau tidak tersedia
+        if(isset($result['error'])) {
+            //maka tampilkan pesan flash dengabn menampilkan isi dari variable error yang ada di service applyPromoCode()
+            session()->flash('error', $result['error']);
+            //dan reset discount
+            $this->resetDiscount();
+        } else {
+            //jikalau promo code ada
+            //maka tampilkan pesan flash di bawah ini
+            session()->flash('message', 'Kode Promo Tersedia Yeay!');
+            // setelah itu ganti property discount dengan variable discount yang ada di service
+            $this->discount = $result['discount'];
+            // setelah itu kalkulasi kan totalnya
+            $this->calculateTotal();
+            //// setelah itu ganti property promoCodeId dengan variable promoCodeId yang ada di service
+            $this->promoCodeId = $result['promoCodeId'];
+            // setelah itu ganti property totalDiscountAmount dengan variable discount yang ada di service
+            $this->totalDiscountAmount = $result['discount'];
+        }
+    }
+
+    public function resetDiscount() {
+        $this->discount = 0;
+        $this->calculateTotal();
+        $this->promoCodeId = null;
+        $this->totalDiscountAmount = 0;
+    }
+
     public function render()
     {
         return view('livewire.order-form');
