@@ -64,13 +64,19 @@ class OrderService {
     }
 
     public function applyPromoCode(string $code, int $subTotalAmount) {
+        //ambil discount berdasarkan kode
         $promo = $this->promoCodeRepository->findByCode($code);
 
+        //jika kode promo ada maka
         if($promo) {
-            $discount = $promo->discount_amont;
+            // ambil data diskon
+            $discount = $promo->discount_amount;
+            //setelah itu kurang sub total dengan discount
             $grandTotalAmount = $subTotalAmount - $discount;
+            //setelah itu ambil id promo code nya
             $promoCodeId = $promo->id;
 
+            // terakhir ambil semua data nya ($discount, $grandTotalAmount, $promoCodeId)
             return [
                 'discount' => $discount,
                 'grandTotalAmount' => $grandTotalAmount,
@@ -78,6 +84,7 @@ class OrderService {
             ];
         }
 
+        //kalaau promo code tidak ada maka buatkan variable yang berisikan pesan error
         return ['error' => 'Kode Promo Tidak Tersedia'];
     }
 

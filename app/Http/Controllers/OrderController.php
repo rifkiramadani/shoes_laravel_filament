@@ -37,7 +37,7 @@ class OrderController extends Controller
     //untuk halaman booking
     public function booking() {
         $data = $this->orderService->getOrderDetails();
-        dd($data);
+        // dd($data);
         return view('order.order', $data);
     }
 
