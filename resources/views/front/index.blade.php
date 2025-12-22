@@ -33,7 +33,7 @@
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                    @forelse ($categories as $category)
-                           <a href="{{route('front.details', $category->slug)}}">
+                           <a href="{{route('front.category', $category->slug)}}">
                             <div class="flex items-center justify-between w-full rounded-2xl overflow-hidden bg-white transition-all duration-300 hover:ring-2 hover:ring-[#FFC700]">
                                 <div class="flex flex-col gap-[2px] px-[14px]">
                                     <h3 class="font-bold text-sm leading-[21px]">{{$category->name}}</h3>
